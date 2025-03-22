@@ -1,93 +1,131 @@
-# PaperSeven
+# 📊 APPLYING STATISTICAL MODELING TO ANALYZE AND PREDICT STORAGE CAPACITY UTILIZATION
 
+## 📝 Abstract
+This project presents a predictive modeling approach to manage storage capacity utilization in artifact repository managers like Sonatype Nexus Repository (NXRM). Leveraging Python and machine learning techniques, we developed a regression-based model to forecast storage requirements, enabling proactive capacity management and reducing risks of unexpected server downtime.
 
+The research addresses the challenges of managing digital artifacts (Maven, npm, Docker, etc.) in agile and DevOps workflows. It demonstrates the effectiveness of data-driven strategies for optimizing storage utilization by analyzing historical log data, performing feature engineering, and applying univariate linear regression. The solution empowers administrators with insights for proactive storage planning and aligns with modern software development lifecycle (SDLC) requirements.
 
-## Getting started
+---
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 📚 Publication Details
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **Journal**: International Journal of Research and Analytical Reviews (IJRAR)
+- **Paper Id**: 303596
+- **Link**: [http://www.ijrar.org/IJRAR19S1828.pdf](http://www.ijrar.org/IJRAR19S1828.pdf)
+- **ISSN**: 2348-1269
+- **Impact Factor**: 7.17
+- **Publication Info**: Volume 7, Issue 1, January 2020
 
-## Add your files
+---
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## 🚀 Key Contributions
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/gitlab3225912/paperseven.git
-git branch -M main
-git push -uf origin main
-```
+✅ **Log Data Engineering**  
+Collected, cleaned, and structured historical repository logs using Python (Pandas and NumPy), extracting key attributes like artifact size, operation type, timestamps, and repository names.  
+✅ **System Architecture & Visualization**  
+Designed detailed system diagrams illustrating interactions between GitHub, Jenkins CI/CD, and Sonatype Nexus repositories. Developed comprehensive visualizations to highlight data trends in artifact uploads, deletions, and storage consumption.  
+✅ **Predictive Regression Model**  
+Developed and evaluated a univariate linear regression model to forecast daily, weekly, and monthly storage consumption. The model provides administrators with actionable insights for proactive disk space planning and management.  
+✅ **Operational Strategy**  
+Proposed practical guidelines for incremental model deployment, phased implementation, and ongoing monitoring to maintain predictive accuracy and operational relevance.
 
-## Integrate with your tools
+---
 
-- [ ] [Set up project integrations](https://gitlab.com/gitlab3225912/paperseven/-/settings/integrations)
+## 🌐 Relevance and Impact
 
-## Collaborate with your team
+💡 **High-Quality Data Pipeline**  
+The robust data preprocessing workflow ensured accurate and reliable datasets for machine learning, minimizing the risk of misleading predictions.  
+📈 **Improved Storage Planning**  
+The regression model delivered valuable predictions that enable proactive storage capacity planning, reducing unexpected downtime incidents.  
+🧠 **Data-Driven Decision Support**  
+System visualizations and analysis enhanced understanding of storage utilization trends, facilitating informed decisions by administrators and DevOps teams.  
+🔧 **Scalable and Adaptable Solution**  
+The proposed approach can be tailored to different repository formats and environments, supporting scaling strategies in dynamic development workflows.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+---
 
-## Test and Deploy
+## 📊 Experimental Results (Summary)
 
-Use the built-in continuous integration in GitLab.
+| Day      | Actual Total Size (GB) | Predicted Total Size (GB) |
+|----------|------------------------|---------------------------|
+| Day 1    | 81                     | 63.80                    |
+| Day 2    | 58                     | 63.67                    |
+| Day 3    | 60                     | 63.53                    |
+| Day 4    | 62                     | 63.40                    |
+| Day 5    | 54                     | 63.27                    |
+| Day 6    | 45                     | 63.13                    |
+| Day 7    | 79                     | 63.00                    |
+| Day 8    | 61                     | 62.87                    |
+| Day 9    | 61                     | 62.73                    |
+| Day 10   | 71                     | 62.60                    |
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+📈 **Regression Equation**:  
+`Predicted Total Size = 63.93 - 0.1333 * Day`
 
-***
+### Key Metrics:
+- **Intercept (β₀)**: 63.93  
+- **Slope (β₁)**: -0.1333  
+- **Prediction Accuracy**: Consistent for trend analysis, suitable for proactive capacity planning.
 
-# Editing this README
+---
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 🏗️ System Architecture Overview
 
-## Suggestions for a good README
+- **Development Teams** push code to **GitHub**.
+- **Jenkins CI/CD** pipelines build and publish artifacts.
+- Artifacts are uploaded to **Sonatype Nexus Repository**:
+  - Snapshot Repositories (development/testing artifacts)
+  - Release Repositories (production-ready artifacts)
+  - NuGet, npm repositories for package management.
+- Repository logs are extracted, analyzed, and used for predictive modeling.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+---
 
-## Name
-Choose a self-explaining name for your project.
+## 🔬 Methodology
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+1. **Data Collection**  
+   - Extracted log files from NXRM repositories.
+2. **Data Cleaning & Feature Engineering**  
+   - Parsed URLs, extracted repository types, operation types, and timestamps.
+   - Cleaned inconsistent entries and filtered PUT operations.
+3. **Regression Analysis**  
+   - Applied univariate linear regression to predict storage requirements based on time series data.
+4. **Validation & Comparison**  
+   - Compared actual vs. predicted storage consumption to validate model performance.
+5. **Implementation Strategy**  
+   - Phased model deployment and ongoing monitoring to adapt to evolving storage trends.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+---
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 🛠️ Technologies Used
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+- **Python**: Data analysis & machine learning (Pandas, NumPy, Matplotlib)
+- **Jenkins**: CI/CD integration for artifact automation
+- **Sonatype Nexus Repository**: Artifact management and storage utilization
+- **GitHub**: Source control and integration with Jenkins pipelines
+- **Machine Learning**: Univariate Linear Regression (scikit-learn, manual calculation)
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+---
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+## 📜 Citation
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+If you use this work, please cite it as follows:
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+**Satya Ram Tsaliki, Dr. B. Purnachandra Rao** (2020).  
+**"APPLYING STATISTICAL MODELING TO ANALYZE AND PREDICT STORAGE CAPACITY UTILIZATION"**,  
+IJRAR - International Journal of Research and Analytical Reviews (IJRAR),  
+Volume 7, Issue 1, Pages 518-533, January 2020.  
+Available at: [http://www.ijrar.org/IJRAR19S1828.pdf](http://www.ijrar.org/IJRAR19S1828.pdf)
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```bibtex
+@article{tsaliki2020storage,
+  title={APPLYING STATISTICAL MODELING TO ANALYZE AND PREDICT STORAGE CAPACITY UTILIZATION},
+  author={Satya Ram Tsaliki and B. Purnachandra Rao},
+  journal={International Journal of Research and Analytical Reviews (IJRAR)},
+  volume={7},
+  number={1},
+  pages={518-533},
+  year={2020},
+  issn={2348-1269},
+  url={http://www.ijrar.org/IJRAR19S1828.pdf}
+}
